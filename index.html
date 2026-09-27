@@ -194,6 +194,8 @@
   /* ---------- video panel ---------- */
   .video-frame{
     position:relative;
+    max-width:340px;
+    margin:0 auto;
   }
   .video-frame::before{
     content:"";
@@ -207,7 +209,7 @@
     position:relative;
     z-index:1;
     width:100%;
-    padding-bottom:125%;
+    aspect-ratio:9/16;
     border-radius:var(--radius);
     overflow:hidden;
     background:#dfe8e4;
