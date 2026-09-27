@@ -70,18 +70,20 @@
     justify-content:space-between;
     gap:16px;
   }
+  
+  /* تم إصلاح مشكلة حجم اللوجو هنا */
   .brand{
     display:flex;
     align-items:center;
-    height:100%;
-    overflow:hidden;
   }
   .brand-mark{
-    height:150%;
+    max-height:55px; /* تحديد الارتفاع الأقصى للوجو ليناسب الهيدر */
+    max-width: 140px;
     width:auto;
     display:block;
     object-fit:contain;
   }
+  
   .header-actions{
     display:flex;
     align-items:center;
@@ -191,30 +193,29 @@
     flex-wrap:wrap;
   }
 
-  /* ---------- video panel (Updated for Reels Size) ---------- */
+  /* ---------- video panel (تم إصلاح الإطار والمقاسات) ---------- */
   .video-frame{
     position:relative;
+    width: 100%;
+    max-width: 320px; /* التحكم في عرض الحاوية بالكامل */
+    margin: 0 auto; /* توسيط الحاوية في مكانها */
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .video-frame::before{
     content:"";
     position:absolute;
-    inset:14px; /* لضبط الخلفية البرتقالية مع الحجم الجديد */
-    top: -14px;
-    bottom: -14px;
-    left: calc(50% - 174px); /* حساب العرض ليتناسب مع max-width */
-    width: 348px;
+    inset: -14px; /* تمدد متساوٍ للإطار من جميع الاتجاهات بمقدار 14 بيكسل */
     background:var(--accent);
-    border-radius:var(--radius);
+    border-radius: calc(var(--radius) + 4px);
     z-index:0;
   }
   .video-wrapper{
     position:relative;
     z-index:1;
     width:100%;
-    max-width: 320px; /* تحديد أقصى عرض ليناسب شكل الموبايل */
-    aspect-ratio: 9 / 16; /* نسبة الطول للعرض الخاصة بالريلز */
+    aspect-ratio: 9 / 16;
     border-radius:var(--radius);
     overflow:hidden;
     background:#000;
@@ -226,7 +227,7 @@
     inset:0;
     width:100%;
     height:100%;
-    object-fit:cover; /* يضمن ملء الفيديو للمساحة الطولية */
+    object-fit:cover;
   }
 
   /* ---------- process ---------- */
